@@ -20,6 +20,26 @@
                     return data;
                 }
             },
+            'getProductosFruta':{
+                method :'GET',
+                isArray:true,
+                url:'api/productosFruta'
+            },
+            'getProductosCarne':{
+                method :'GET',
+                isArray:true,
+                url:'api/productosCarne'
+            },
+            'getProductosVerdura':{
+                method :'GET',
+                isArray:true,
+                url:'api/productosVerdura'
+            },
+            'getProductosBatido':{
+                method :'GET',
+                isArray:true,
+                url:'api/productosBatido'
+            },
             'update': { method:'PUT' }
         });
     }

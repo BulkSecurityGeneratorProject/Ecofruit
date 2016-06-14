@@ -35,13 +35,13 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 public class ProductoResource {
 
     private final Logger log = LoggerFactory.getLogger(ProductoResource.class);
-        
+
     @Inject
     private ProductoRepository productoRepository;
-    
+
     @Inject
     private ProductoSearchRepository productoSearchRepository;
-    
+
     /**
      * POST  /productos : Create a new producto.
      *
@@ -104,10 +104,84 @@ public class ProductoResource {
     public ResponseEntity<List<Producto>> getAllProductos(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Productos");
-        Page<Producto> page = productoRepository.findAll(pageable); 
+        Page<Producto> page = productoRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/productos");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+
+    /*
+        Get all productos con id subcategoria 1, que equivale a fruta
+         */
+    @RequestMapping(value = "/productosFruta",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Producto>> getProductosFruta(Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Productos");
+        Page<Producto> page = productoRepository.findBySubcategoriaIsFruta(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/productos");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /*
+      Get all productos con id subcategoria 33, que equivale a carne
+       */
+    @RequestMapping(value = "/productosCarne",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Producto>> getProductosCarne(Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Productos");
+        Page<Producto> page = productoRepository.findBySubcategoriaIsCarne(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/productos");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /*
+     Get all productos con id subcategoria 65, que equivale a verdura
+      */
+    @RequestMapping(value = "/productosVerdura",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Producto>> getProductosVerdura(Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Productos");
+        Page<Producto> page = productoRepository.findBySubcategoriaIsVerdura(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/productos");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /*
+     Get all productos con id subcategoria 66, que equivale a batido
+      */
+    @RequestMapping(value = "/productosBatido",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Producto>> getProductosBatido(Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Productos");
+        Page<Producto> page = productoRepository.findBySubcategoriaIsBatidos(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/productos");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+
+    /*@RequestMapping(value = "/productosFruta/{productosFruta}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Producto>> getProductosByFruta(@PathVariable Integer productosFruta, Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Productos");
+        Page<Producto> page = productoRepository.findByFruta(productosFruta,pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/productos/productosFruta");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }*/
+
 
     /**
      * GET  /productos/:id : get the "id" producto.

@@ -3,15 +3,31 @@
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-4 no-padding-left">
+            <!--<div class="col-xs-2 no-padding-left">
                 <button class="btn btn-primary" ui-sref="producto.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span class="hidden-xs"  translate="ecofruitApp.producto.home.createLabel">
                         Create new Producto
                     </span>
                 </button>
+            </div>-->
+            <div class="col-xs-2 no-padding-left">
+                <button class="btn btn-primary" ui-sref="producto.fruta" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  >
+                        Frutas
+                    </span>
+                </button>
             </div>
-            <div class="col-xs-8 no-padding-right">
+            <div class="col-xs-2 no-padding-left">
+                <button class="btn btn-primary" ui-sref="producto.carne" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  >
+                        Carnes
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-6 no-padding-right">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
                         <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'ecofruitApp.producto.home.search' | translate }}">
@@ -29,6 +45,25 @@
                 </form>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-2 no-padding-left">
+                <button class="btn btn-primary" ui-sref="producto.verdura" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  >
+                        Verduras
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-2 no-padding-left">
+                <button class="btn btn-primary" ui-sref="producto.batido" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  >
+                        Batidos
+                    </span>
+                </button>
+            </div>
+        </div>
+
     </div>
     <br/>
     <div class="table-responsive">
