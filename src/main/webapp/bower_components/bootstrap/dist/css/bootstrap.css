@@ -79,6 +79,7 @@ body {
 }
 #alturaProd1:hover{
     cursor: pointer;
+    opacity: 0.8;
 }
 #alturaProd2{
     height: 120px;
@@ -89,6 +90,7 @@ body {
 }
 #alturaProd2:hover{
     cursor: pointer;
+    opacity: 0.8;
 }
 #alturaProd3{
     height: 120px;
@@ -99,6 +101,7 @@ body {
 }
 #alturaProd3:hover{
     cursor: pointer;
+    opacity: 0.8;
 }
 #alturaProd4{
     height: 120px;
@@ -109,6 +112,7 @@ body {
 }
 #alturaProd4:hover{
     cursor: pointer;
+    opacity: 0.8;
 }
 .batidoNombre{
     margin-left: 37px;
@@ -140,6 +144,12 @@ body {
 }
 .jumbotronMensaje{
     background-image: url("collageCartas3.jpg");
+}
+.jumbotronActualidad{
+    background-image: url("periodicosVintage.jpg");
+}
+.jumbotronEntidades{
+    background-image: url("biblioV.jpg");
 }
 .mensajes{
     background-color: white;
@@ -186,6 +196,7 @@ a {
 a:active,
 a:hover {
   outline: 0;
+    opacity: 0.8;
 }
 abbr[title] {
   border-bottom: 1px dotted;
@@ -5172,7 +5183,93 @@ a.badge:focus {
 }
 
 
+.jumbotronEntidades {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eee;
+}
+.jumbotronEntidades h1,
+.jumbotronEntidades .h1 {
+    color: inherit;
+}
+.jumbotronEntidades p {
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+}
+.jumbotronEntidades > hr {
+    border-top-color: #d5d5d5;
+}
+.container .jumbotronEntidades,
+.container-fluid .jumbotronEntidades {
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 6px;
+}
+.jumbotronEntidades .container {
+    max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+    .jumbotronEntidades {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+    .container .jumbotronEntidades,
+    .container-fluid .jumbotronEntidades {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+    .jumbotronEntidades h1,
+    .jumbotronEntidades .h1 {
+        font-size: 63px;
+    }
+}
 
+.jumbotronActualidad {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eee;
+}
+.jumbotronActualidad h1,
+.jumbotronActualidad .h1 {
+    color: inherit;
+}
+.jumbotronActualidad p {
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+}
+.jumbotronActualidad > hr {
+    border-top-color: #d5d5d5;
+}
+.container .jumbotronActualidad,
+.container-fluid .jumbotronActualidad {
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 6px;
+}
+.jumbotronActualidad .container {
+    max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+    .jumbotronActualidad {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+    .container .jumbotronActualidad,
+    .container-fluid .jumbotronActualidad {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+    .jumbotronActualidad h1,
+    .jumbotronActualidad .h1 {
+        font-size: 63px;
+    }
+}
 
 .jumbotronMensaje {
     padding-top: 30px;
