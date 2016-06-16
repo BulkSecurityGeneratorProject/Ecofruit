@@ -42,7 +42,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="categoria in vm.categorias track by categoria.id">
+                <tr class="mensajes" ng-repeat="categoria in vm.categorias track by categoria.id">
                     <td><a ui-sref="categoria-detail({id:categoria.id})">{{categoria.id}}</a></td>
                     <td>{{categoria.nombre}}</td>
                     <td>{{categoria.descripcion}}</td>

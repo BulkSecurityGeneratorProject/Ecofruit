@@ -1,25 +1,19 @@
 <div>
-    <h2 translate="ecofruitApp.producto.home.title">Productos</h2>
+    <div class="jumbotronProducto">
+        <img class="productosEcologicos" src="productosFrutas.png">
+    </div>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-2 no-padding-left">
-                <button class="btn btn-primary" ui-sref="producto.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs"  translate="ecofruitApp.producto.home.createLabel">
-                        Create new Producto
-                    </span>
-                </button>
-            </div>
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="producto" >
-                    <span class="glyphicon glyphicon-plus"></span>
+
                     <span class="hidden-xs"  >
                        Todos los productos
                     </span>
                 </button>
             </div>
-            <div class="col-xs-6 no-padding-right">
+            <div class="col-xs-8 no-padding-right">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
                         <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'ecofruitApp.producto.home.search' | translate }}">
@@ -40,6 +34,20 @@
     </div>
     <br/>
     <div class="table-responsive">
+        <table class="col-xs-4 jh-table table table-striped">
+            <tbody>
+            <td ng-repeat="producto in productosFruta track by producto.id">
+                <div style="font-size: 200%; text-align:center; color: #ba452a; font-family: blanch; font-size: 51px;">
+                    {{producto.nombre}}</br>
+                    <a class="col-sm-4" ng-if="producto.imagen" ui-sref="producto-detail({id:producto.id})">
+                        <img data-ng-src="{{'data:' + producto.imagenContentType + ';base64,' + producto.imagen}}" style="height: 300px ;"width="400px;"/>
+                    </a>
+                </div>
+            </td>
+            </tbody>
+        </table>
+    </div>
+    <!--<div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
             <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
@@ -62,7 +70,7 @@
                     <a ng-if="producto.imagen" ng-click="vm.openFile(producto.imagenContentType, producto.imagen)">
                         <img data-ng-src="{{'data:' + producto.imagenContentType + ';base64,' + producto.imagen}}" style="max-height: 30px;"/>
                     </a>
-                    <span ng-if="producto.imagen">{{producto.imagenContentType}}, {{vm.byteSize(producto.imagen)}}</span>
+                    <span ng-if="producto.imagen">{{producto.imagenContentType}}</span>
                 </td>
                 <td>{{producto.precio}}</td>
                 <td>
@@ -96,7 +104,7 @@
             </tr>
             </tbody>
         </table>
-    </div>
+    </div>-->
     <div class="text-center">
         <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
     </div>

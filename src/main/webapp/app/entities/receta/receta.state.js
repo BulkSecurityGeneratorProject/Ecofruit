@@ -150,7 +150,7 @@
             }]
         })
         .state('receta.edit', {
-            parent: 'receta',
+            parent: 'receta.mis',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
@@ -168,7 +168,7 @@
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('receta', null, { reload: true });
+                    $state.go('receta.mis', null, { reload: true });
                 }, function() {
                     $state.go('^');
                 });

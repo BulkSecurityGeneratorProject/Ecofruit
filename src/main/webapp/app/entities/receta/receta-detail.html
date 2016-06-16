@@ -1,39 +1,48 @@
 
-<div>
-    <h2><span translate="ecofruitApp.receta.detail.title">Receta</span> {{vm.receta.id}}</h2>
+<br>
+    <h2 class="col-xs-6"><span>Receta</span> {{vm.receta.nombre}}</h2>
+    <div class="col-xs-6 fechaReceta">
+    <dt><span >Fecha creación</span></dt>
+    <dd>
+    <span>{{vm.receta.fecha | date:'medium'}}</span>
+    </dd>
+    </div>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span translate="ecofruitApp.receta.nombre">Nombre</span></dt>
+
+
         <dd>
-            <span>{{vm.receta.nombre}}</span>
+            <div ng-if="vm.receta.imagen">
+                <a ng-click="vm.openFile(vm.receta.imagenContentType, vm.receta.imagen)">
+                    <img data-ng-src="{{'data:' + vm.receta.imagenContentType + ';base64,' + vm.receta.imagen}}"  style="height: 500px ;"width="600px;"/>
+                </a>
+            </div>
         </dd>
         <dt><span translate="ecofruitApp.receta.descripcion">Descripcion</span></dt>
         <dd>
             <span>{{vm.receta.descripcion}}</span>
         </dd>
-        <dt><span translate="ecofruitApp.receta.imagen">Imagen</span></dt>
-        <dd>
-            <div ng-if="vm.receta.imagen">
-                <a ng-click="vm.openFile(vm.receta.imagenContentType, vm.receta.imagen)">
-                    <img data-ng-src="{{'data:' + vm.receta.imagenContentType + ';base64,' + vm.receta.imagen}}" style="max-width: 100%;"/>
-                </a>
-                {{vm.receta.imagenContentType}}, {{vm.byteSize(vm.receta.imagen)}}
-            </div>
-        </dd>
-        <dt><span translate="ecofruitApp.receta.fecha">Fecha</span></dt>
-        <dd>
-            <span>{{vm.receta.fecha | date:'medium'}}</span>
-        </dd>
-        <dt><span translate="ecofruitApp.receta.user">User</span></dt>
-        <dd>
-            {{vm.receta.user.firstName}}
-        </dd>
-    </dl>
+        <div id="creadoPor">
+            <dt ><span>Creado por</span></dt>
+            <dd>
+                {{vm.receta.user.firstName}}
+            </dd>
+        </div>
 
+    </dl>
+    <div class="col-xs-12 no-padding-left">
+        <button class="btn btn-primary" ui-sref="comentario.receta" >
+            <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs" >
+                       Comentarios
+                    </span>
+        </button>
+    </div></br>
     <button type="submit"
             onclick="window.history.back()"
-            class="btn btn-info">
+            class="btn btn-info-back">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
     </button>
+
 </div>

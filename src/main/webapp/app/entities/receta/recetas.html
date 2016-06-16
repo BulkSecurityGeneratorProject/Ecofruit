@@ -1,5 +1,8 @@
 <div>
-    <h2 translate="ecofruitApp.receta.home.title">Recetas</h2>
+    <!--<h2 translate="ecofruitApp.receta.home.title">Recetas</h2>-->
+    <div class="jumbotron">
+        <img class="productosEcologicos" src="recetasEcologicas.png">
+    </div>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -40,6 +43,20 @@
     </div>
     <br/>
     <div class="table-responsive">
+        <table class="col-xs-4 jh-table table table-striped">
+            <tbody>
+            <td ng-repeat="receta in vm.recetas track by receta.id">
+                <div style="font-size: 200%; text-align:center; color: #ba452a; font-family: blanch; font-size: 51px;">
+                    {{receta.nombre}}</br>
+                    <a class="col-sm-4" ng-if="receta.imagen" ui-sref="receta-detail({id:receta.id})">
+                        <img data-ng-src="{{'data:' + receta.imagenContentType + ';base64,' + receta.imagen}}" style="height: 300px ;"width="400px;"/>
+                    </a>
+                </div>
+            </td>
+            </tbody>
+        </table>
+    </div>
+    <!--<div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
@@ -80,7 +97,7 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div>-->
     <div class="text-center">
         <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
     </div>

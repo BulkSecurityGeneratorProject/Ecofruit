@@ -1,5 +1,7 @@
 <div>
-    <h2 translate="ecofruitApp.receta.home.title">Recetas</h2>
+    <div class="jumbotron">
+        <img class="productosEcologicos" src="MisRecetas.png">
+    </div>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -40,6 +42,40 @@
     </div>
     <br/>
     <div class="table-responsive">
+        <table class="col-xs-4 jh-table table table-striped">
+            <tbody>
+            <td ng-repeat="receta in Misrecetas track by receta.id">
+                <div style="font-size: 200%; text-align:center; color: #ba452a; font-family: blanch; font-size: 51px;">
+                    {{receta.nombre}}</br>
+                    <a class="" ng-if="receta.imagen" ui-sref="receta-detail({id:receta.id})">
+                        <img data-ng-src="{{'data:' + receta.imagenContentType + ';base64,' + receta.imagen}}" style="height: 300px ;"width="400px;"/>
+                    </a>
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                ui-sref="receta-detail({id:receta.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="receta.edit({id:receta.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="receta.delete({id:receta.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                            <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                        </button>
+                    </div>
+                </div>
+            </td>
+            </tbody>
+        </table>
+    </div>
+    <!--<div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
             <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
@@ -92,7 +128,7 @@
             </tr>
             </tbody>
         </table>
-    </div>
+    </div>-->
     <div class="text-center">
         <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
     </div>

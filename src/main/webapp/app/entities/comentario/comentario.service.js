@@ -26,6 +26,11 @@
                 method :'GET',
                 isArray:true,
                 url:'api/Miscomentarios'
+            },
+            'getComentariosReceta':{
+                method :'GET',
+                isArray:true,
+                url:'api/comentariosReceta'
             }
         });
 

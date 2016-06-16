@@ -1,5 +1,5 @@
 body {
-    background: #fafafa;
+    background-image: url("paisaje1080.jpg");
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
@@ -68,9 +68,9 @@ Browser Upgrade Prompt
 /* ==========================================================================
 Logo styles
 ========================================================================== */
-.navbar-brand.logo {
-    padding: 5px 15px;
-}
+/*.navbar-brand.logo {
+   // padding: 5px 15px;
+}*/
 
 .logo .logo-img {
     height: 45px;
@@ -270,11 +270,12 @@ entity tables helpers
  http://www.sketchingwithcss.com/samplechapter/cheatsheet.html#right */
 .flex-btn-group-container {
    display: -webkit-flex;
-   display: flex;
+  /* display: flex;*/
    -webkit-flex-direction: row;
    flex-direction: row;
    -webkit-justify-content: flex-end;
    justify-content: flex-end;
+    font-family: Helvetica;
 }
 
 .jh-table > tbody > tr > td {
@@ -306,7 +307,7 @@ entity detail page css
     }
 
     .dl-horizontal.jh-entity-details > dd {
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #352e24;;
         padding-left: 180px;
         margin-left: 0;
     }

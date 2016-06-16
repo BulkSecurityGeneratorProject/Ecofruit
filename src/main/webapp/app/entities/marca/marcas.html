@@ -42,7 +42,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="marca in vm.marcas track by marca.id">
+                <tr class="mensajes" ng-repeat="marca in vm.marcas track by marca.id">
                     <td><a ui-sref="marca-detail({id:marca.id})">{{marca.id}}</a></td>
                     <td>{{marca.nombre}}</td>
                     <td>{{marca.descripcion}}</td>

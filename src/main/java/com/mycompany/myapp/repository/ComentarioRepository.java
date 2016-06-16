@@ -17,7 +17,7 @@ public interface ComentarioRepository extends JpaRepository<Comentario,Long> {
     @Query("select comentario from Comentario comentario where comentario.user.login = ?#{principal.username}")
     Page<Comentario> findByUserIsCurrentUser(Pageable pageable);
 
-   /* @Query("select comentario from Comentario comentario, Receta receta where receta.id=comentario.receta_id and receta_id= ?#{receta.id}")
+    @Query("select comentario from Comentario comentario, Receta receta where receta.id=comentario.receta and comentario.receta= 1")
     Page<Comentario> findComentarioByReceta(Pageable pageable);
 
     /*

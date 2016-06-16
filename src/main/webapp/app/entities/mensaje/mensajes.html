@@ -1,5 +1,7 @@
 <div>
-    <h2>Mensajes Recibidos</h2>
+    <div class="jumbotronMensaje">
+        <img class="productosEcologicos" src="MensajesRecibidos.png">
+    </div>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -41,29 +43,14 @@
     <br/>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
-            <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="titulo"><span translate="ecofruitApp.mensaje.titulo">Titulo</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="contenido"><span translate="ecofruitApp.mensaje.contenido">Contenido</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="fecha"><span translate="ecofruitApp.mensaje.fecha">Fecha</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="emisor.firstName"><span translate="ecofruitApp.mensaje.emisor">Emisor</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="receptor.firstName"><span translate="ecofruitApp.mensaje.receptor">Receptor</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>
-            </thead>
             <tbody>
-                <tr ng-repeat="mensaje in vm.mensajes track by mensaje.id">
-                    <td><a ui-sref="mensaje-detail({id:mensaje.id})">{{mensaje.id}}</a></td>
-                    <td>{{mensaje.titulo}}</td>
-                    <td>{{mensaje.contenido}}</td>
-                    <td>{{mensaje.fecha | date:'medium'}}</td>
-                    <td>
+                <tr class="mensajes" ng-repeat="mensaje in vm.mensajes track by mensaje.id">
+                    <td ui-sref="mensaje-detail({id:mensaje.id})">
                         {{mensaje.emisor.firstName}}
                     </td>
-                    <td>
-                        {{mensaje.receptor.firstName}}
-                    </td>
+                    <td  ui-sref="mensaje-detail({id:mensaje.id})">{{mensaje.titulo}}</td>
+                    <td ui-sref="mensaje-detail({id:mensaje.id})">{{mensaje.fecha | date:'medium'}}</td>
+
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
@@ -83,9 +70,6 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div class="text-center">
-        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
     </div>
     <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
 </div>

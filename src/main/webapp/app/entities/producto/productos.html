@@ -1,8 +1,10 @@
 <div>
-    <h2 translate="ecofruitApp.producto.home.title">Productos</h2>
+    <div class="jumbotronProducto">
+        <img class="productosEcologicos" src="productosEcologicos2.png">
+    </div>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
-        <div class="row">
+     <!--  <div class="row">
             <!--<div class="col-xs-2 no-padding-left">
                 <button class="btn btn-primary" ui-sref="producto.new" >
                     <span class="glyphicon glyphicon-plus"></span>
@@ -10,27 +12,52 @@
                         Create new Producto
                     </span>
                 </button>
-            </div>-->
-            <div class="col-xs-2 no-padding-left">
-                <button class="btn btn-primary" ui-sref="producto.fruta" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs"  >
+            </div>
+            <div class="col-xs-6-productoFruta" ui-sref="producto.fruta">
+                <div class="imgFruta"></div>
                         Frutas
-                    </span>
-                </button>
+
             </div>
-            <div class="col-xs-2 no-padding-left">
-                <button class="btn btn-primary" ui-sref="producto.carne" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs"  >
+            <div class="col-xs-6-productoCarne" ui-sref="producto.carne">
+                <div class="imgCarne"></div>
                         Carnes
-                    </span>
-                </button>
+
             </div>
-            <div class="col-xs-6 no-padding-right">
-                <form name="searchForm" class="form-inline">
-                    <div class="input-group pull-right" >
-                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'ecofruitApp.producto.home.search' | translate }}">
+
+
+            <div class="col-xs-6-productoVerdura" ui-sref="producto.verdura">
+                <div class="imgVerdura"></div>
+                        Verduras
+
+            </div>
+            <div class="col-xs-6-productoBatido" ui-sref="producto.batido">
+                <div class="imgBatido"></div>
+                        Batidos
+
+            </div>
+    </div>-->
+        <div class="row">
+            <div id="alturaProd1"  class="col-sm-6" ui-sref="producto.fruta">
+                <img class="frutaNombre" src="frutaNombre.png">
+
+            </div>
+            <div id="alturaProd2" class="col-sm-6" ui-sref="producto.carne">
+
+
+            </div>
+            <div id="alturaProd3" class="col-sm-6" ui-sref="producto.verdura">
+                <img class="verduraNombre" src="verdurasNombre.png">
+
+            </div>
+            <div id="alturaProd4" class="col-sm-6" ui-sref="producto.batido">
+                <img class="batidoNombre" src="batidosNombre.png">
+            </div>
+        </div>
+
+        <div class="col-xs-6 no-padding-right">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group pull-right" >
+                    <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'ecofruitApp.producto.home.search' | translate }}">
                         <span  class="input-group-btn width-min" >
                             <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -41,32 +68,26 @@
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
                         </span>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-        <div class="row">
-            <div class="col-xs-2 no-padding-left">
-                <button class="btn btn-primary" ui-sref="producto.verdura" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs"  >
-                        Verduras
-                    </span>
-                </button>
-            </div>
-            <div class="col-xs-2 no-padding-left">
-                <button class="btn btn-primary" ui-sref="producto.batido" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs"  >
-                        Batidos
-                    </span>
-                </button>
-            </div>
-        </div>
-
     </div>
     <br/>
     <div class="table-responsive">
+        <table class="col-xs-4 jh-table table table-striped">
+            <tbody>
+            <td ng-repeat="producto in vm.productos track by producto.id">
+                <div style="font-size: 200%; text-align:center; color: #ba452a; font-family: blanch; font-size: 51px;">
+                    {{producto.nombre}}</br>
+                    <a class="col-sm-4" ng-if="producto.imagen" ui-sref="producto-detail({id:producto.id})">
+                        <img data-ng-src="{{'data:' + producto.imagenContentType + ';base64,' + producto.imagen}}" style="height: 300px ;"width="400px;"/>
+                    </a>
+                </div>
+            </td>
+            </tbody>
+        </table>
+    </div>
+    <!--<div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
@@ -123,9 +144,6 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div class="text-center">
-        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
-    </div>
-    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+    </div>-->
+
 </div>

@@ -91,5 +91,6 @@
             vm.transition();
         }
         $scope.Miscomentarios = Comentario.getMiscomentarios();
+        $scope.comentariosReceta = Comentario.getComentariosReceta();
     }
 })();
