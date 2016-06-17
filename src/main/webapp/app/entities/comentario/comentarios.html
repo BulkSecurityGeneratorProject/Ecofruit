@@ -5,23 +5,23 @@
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-3 no-padding-left">
+            <div class="col-xs-2 no-padding-left">
                 <button class="btn btn-primary" ui-sref="comentario.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs"  translate="ecofruitApp.comentario.home.createLabel">
-                        Create new Comentario
+                    <span class="hidden-xs"  >
+                        Redactar Comentario
                     </span>
                 </button>
             </div>
             <div class="col-xs-3 no-padding-left">
                 <button class="btn btn-primary" ui-sref="comentario.mis" >
-                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="glyphicon glyphicon-envelope"></span>
                     <span class="hidden-xs">
                         Mis comentarios
                     </span>
                 </button>
             </div>
-            <div class="col-xs-6 no-padding-right">
+            <div class="col-xs-7 no-padding-right">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
                         <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'ecofruitApp.comentario.home.search' | translate }}">
@@ -42,6 +42,23 @@
     </div>
     <br/>
     <div class="table-responsive">
+        <table class="col-xs-4 jh-table table table-striped">
+            <tbody>
+            <td ng-repeat="comentario in vm.comentarios track by comentario.id">
+                <div style="font-size: 200%; text-align:center; color: #ba452a; font-family: blanch; font-size: 51px;">
+                    {{comentario.receta.nombre}}</br>
+                    <a class="col-sm-4" ng-if="comentario.receta.imagen" ui-sref="receta-detail({id:comentario.receta.id})">
+                        <img data-ng-src="{{'data:' + comentario.receta.imagenContentType + ';base64,' + comentario.receta.imagen}}" style="height: 300px ;"width="400px;"/>
+                    </a><br>
+                    <div class="col-sm-12 comentarioDetail1" ui-sref="comentario-detail({id:comentario.id})">{{comentario.texto}}</div>
+                    <div class="col-sm-12 comentarioDetail2" ui-sref="comentario-detail({id:comentario.id})">{{comentario.user.firstName}}</div>
+                    <div class="col-sm-12 comentarioDetail3" ui-sref="comentario-detail({id:comentario.id})">{{comentario.fecha | date:'medium'}}</div>
+                </div>
+            </td>
+            </tbody>
+        </table>
+    </div>
+   <!-- <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
@@ -77,9 +94,6 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div class="text-center">
-        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
-    </div>
-    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+    </div>-->
+
 </div>

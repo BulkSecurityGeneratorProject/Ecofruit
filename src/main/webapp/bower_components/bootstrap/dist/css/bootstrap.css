@@ -155,10 +155,43 @@ body {
     background-color: white;
     border-bottom: 1px solid #352e24;
 }
+.mensajes:hover{
+    cursor: pointer;
+}
 .tituloMensaje{
     font-size: 30px;
     margin-bottom: 15px;
     border-bottom: 1px solid #352e24;
+}
+.comentarioDetail1{
+    font-family: helvetica;
+    font-size: 29px;
+    text-align: center;
+    color: #352e24;
+}
+.comentarioDetail2{
+    font-family: helvetica;
+    font-size: 20px;
+    text-align: left;
+    color: #352e24;
+}
+.comentarioDetail3{
+    font-family: helvetica;
+    font-size: 20px;
+    text-align: left;
+    color: #352e24;
+}
+.comentarioDetail1:hover{
+    cursor: pointer;
+    color: #2b4468;
+}
+.comentarioDetail2:hover{
+    cursor: pointer;
+    color: #2b4468;
+}
+.comentarioDetail3:hover{
+    cursor: pointer;
+    color: #2b4468;
 }
 article,
 aside,

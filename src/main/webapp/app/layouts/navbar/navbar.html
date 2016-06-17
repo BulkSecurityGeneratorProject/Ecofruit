@@ -160,7 +160,20 @@
                         </li>
                         <li ui-sref-active="active">
                             <a ui-sref="producto.admin" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
                                 <span>Productos</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="receta.admin" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <span>Recetas</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="comentario.admin" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <span>Comentarios</span>
                             </a>
                         </li>
                         <li ng-hide="vm.inProduction || vm.swaggerDisabled" ui-sref-active="active">
