@@ -18,5 +18,14 @@
             vm.receta = result;
         });
         $scope.$on('$destroy', unsubscribe);
+
+        vm.actions = {
+            getComentarios: function(idFromButton){
+                var comentarios = Receta.getRecetasComentarios({id:idFromButton},function(){
+                    console.log('comentarios recibidos',comentarios);
+                    vm.comentarios=comentarios;
+                });
+            }
+        }
     }
 })();

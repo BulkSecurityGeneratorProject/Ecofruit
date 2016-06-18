@@ -26,11 +26,11 @@
                 isArray:true,
                 url:'api/Misrecetas2'
             },
-           /* 'getRecetasComentarios':{
+            'getRecetasComentarios':{
                 method :'GET',
                 isArray:true,
-                url:'api/recetasComentarios/{id}'
-            },*/
+                url:'api/comentarios/receta/:id'
+            },
             'update': { method:'PUT' }
         });
     }

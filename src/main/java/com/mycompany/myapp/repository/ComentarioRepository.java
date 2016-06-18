@@ -5,6 +5,7 @@ import com.mycompany.myapp.domain.Comentario;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -17,7 +18,11 @@ public interface ComentarioRepository extends JpaRepository<Comentario,Long> {
     @Query("select comentario from Comentario comentario where comentario.user.login = ?#{principal.username} ")
     Page<Comentario> findByUserIsCurrentUser(Pageable pageable);
 
-    @Query("select comentario from Comentario comentario, Receta receta where receta.id=comentario.receta and comentario.receta = 1")
+    @Query("select comentario from Comentario comentario where comentario.receta.id=:id")
+    List<Comentario> findComentariosFromRecetaId(@Param("id") long id);
+
+
+   /* @Query("select comentario from Comentario comentario, Receta receta where receta.id=comentario.receta and comentario.receta = 1")
     Page<Comentario> findComentarioByReceta(Pageable pageable);
 
    /* @Query(value="select comentario from Comentario comentario where comentario.id ORDER BY comentario.id desc", nativeQuery = true)

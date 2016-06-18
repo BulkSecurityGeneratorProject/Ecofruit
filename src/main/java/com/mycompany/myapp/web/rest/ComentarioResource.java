@@ -133,16 +133,14 @@ public class ComentarioResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/comentariosReceta",
+    @RequestMapping(value = "/comentarios/receta/{id}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<Comentario>> getComentariosReceta(Pageable pageable)
-        throws URISyntaxException {
-        log.debug("REST request to get a page of Comentarios");
-        Page<Comentario> page = comentarioRepository.findComentarioByReceta(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/comentariosReceta");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    public List<Comentario> getComentariosReceta(@PathVariable long id) {
+        log.debug("REST request to get all Tiendas");
+        List<Comentario> comentarios = comentarioRepository.findComentariosFromRecetaId(id);
+        return comentarios;
     }
 
     /**

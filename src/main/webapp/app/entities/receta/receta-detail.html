@@ -1,3 +1,17 @@
+<style>
+    #tablaComentarios {
+        display: none;
+    }
+    .comHover:hover{
+        cursor:pointer;
+    }
+</style>
+<script>
+    function myFunction() {
+        document.getElementById("tablaComentarios").style.display = "block";
+    }
+
+</script>
 <div>
 <br>
     <h2 class="col-xs-6"><span>Receta</span> {{vm.receta.nombre}}</h2>
@@ -32,7 +46,7 @@
 
     </dl>
     <div class="col-xs-12 no-padding-left">
-        <button class="btn btn-primary" ui-sref="comentario.receta" >
+        <button onclick="myFunction()" class="btn btn-primary" ng-click="vm.actions.getComentarios(vm.receta.id)" >
             <span class="glyphicon glyphicon-plus"></span>
                     <span class="hidden-xs" >
                        Comentarios
@@ -45,5 +59,17 @@
             class="btn btn-info-back">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
     </button>
+    <div id="tablaComentarios" class="table-responsive">
+        <h2>Comentarios</h2>
+        <table class="jh-table table table-striped">
+            <tbody>
+            <tr ng-repeat="comentario in vm.comentarios track by comentario.id">
+                <td class="comHover" ui-sref="comentario-detail({id:comentario.id})">{{comentario.texto}}</td>
+                <td>{{comentario.user.firstName}}</td>
+                <td>{{comentario.fecha | date:'medium'}}</td>
 
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
