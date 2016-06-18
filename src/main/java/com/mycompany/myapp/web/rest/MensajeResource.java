@@ -77,6 +77,29 @@ public class MensajeResource {
             .headers(HeaderUtil.createEntityCreationAlert("mensaje", result.getId().toString()))
             .body(result);
     }
+    /*
+    prueba mensaje automatico
+
+    @RequestMapping(value = "/mensajes",
+        method = RequestMethod.POST,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Mensaje> createMensajeAuto(@Valid @RequestBody Mensaje mensaje) throws URISyntaxException {
+        log.debug("REST request to save Mensaje : {}", mensaje);
+        if (mensaje.getId() != null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("mensaje", "idexists", "A new mensaje cannot already have an ID")).body(null);
+        }
+
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
+        mensaje.setEmisor(user);
+        ZonedDateTime dia = ZonedDateTime.now(ZoneId.systemDefault());
+        mensaje.setFecha(dia);
+        Mensaje result = mensajeRepository.save2(mensaje);
+        mensajeSearchRepository.save2(result);
+        return ResponseEntity.created(new URI("/api/mensajes/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert("mensaje", result.getId().toString()))
+            .body(result);
+    }*/
 
     /**
      * PUT  /mensajes : Updates an existing mensaje.

@@ -1,0 +1,85 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTiendaLabel" translate="ecofruitApp.tienda.home.createOrEditLabel">Create or edit a Tienda</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.tienda.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.tienda.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ecofruitApp.tienda.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.tienda.nombre"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ecofruitApp.tienda.direccion" for="field_direccion">Direccion</label>
+            <input type="text" class="form-control" name="direccion" id="field_direccion"
+                    ng-model="vm.tienda.direccion"
+                    places-auto-complete size=80
+                    component-restrictions="{country:'es'}"
+                    types="{{types}}"
+                    on-place-changed="placeChanged(place)"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ecofruitApp.tienda.ciudad" for="field_ciudad">Ciudad</label>
+            <input type="text" class="form-control" name="ciudad" id="field_ciudad"
+                    ng-model="vm.tienda.ciudad"
+                    places-auto-complete size=80
+                    component-restrictions="{country:'es'}"
+                    types="{{types}}"
+                    on-place-changed="locationChanged(locat)"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ecofruitApp.tienda.latitud" for="field_latitud">Latitud</label>
+            <input type="number" class="form-control" name="latitud" id="field_latitud"
+                    ng-model="vm.tienda.latitud"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ecofruitApp.tienda.longitud" for="field_longitud">Longitud</label>
+            <input type="number" class="form-control" name="longitud" id="field_longitud"
+                    ng-model="vm.tienda.longitud"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ecofruitApp.tienda.horario" for="field_horario">Horario</label>
+            <input type="text" class="form-control" name="horario" id="field_horario"
+                    ng-model="vm.tienda.horario"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ecofruitApp.tienda.telefono" for="field_telefono">Telefono</label>
+            <input type="text" class="form-control" name="telefono" id="field_telefono"
+                    ng-model="vm.tienda.telefono"
+                     />
+        </div>
+
+        <div class="form-group">
+            <ng-map class=""><marker position="{{place.geometry.location}}"></marker></ng-map>
+        </div>
+        <!--<div class="form-group">
+            <label translate="ecofruitApp.tienda.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" ng-model="vm.tienda.user" ng-options="user as user.id for user in vm.users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>-->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

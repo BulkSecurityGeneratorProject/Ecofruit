@@ -17,6 +17,7 @@
         vm.byteSize = DataUtils.byteSize;
         vm.openFile = DataUtils.openFile;
         vm.save = save;
+        vm.save2 = save2;
         vm.users = User.query();
 
         $timeout(function (){

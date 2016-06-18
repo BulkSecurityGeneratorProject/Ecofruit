@@ -14,13 +14,11 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface ComentarioRepository extends JpaRepository<Comentario,Long> {
 
-    @Query("select comentario from Comentario comentario where comentario.user.login = ?#{principal.username}")
+    @Query("select comentario from Comentario comentario where comentario.user.login = ?#{principal.username} ")
     Page<Comentario> findByUserIsCurrentUser(Pageable pageable);
 
-    @Query("select comentario from Comentario comentario, Receta receta where receta.id=comentario.receta and comentario.receta= 1")
+    @Query("select comentario from Comentario comentario, Receta receta where receta.id=comentario.receta and comentario.receta = 1")
     Page<Comentario> findComentarioByReceta(Pageable pageable);
-
-
 
    /* @Query(value="select comentario from Comentario comentario where comentario.id ORDER BY comentario.id desc", nativeQuery = true)
     Page<Comentario> findIdDesc(Pageable pageable);

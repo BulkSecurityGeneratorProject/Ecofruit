@@ -1,0 +1,111 @@
+<div>
+    <div class="jumbotronTienda">
+        <img class="productosEcologicos" src="tiendas.png">
+    </div>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'ecofruitApp.tienda.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="col-xs-4 jh-table table table-striped">
+            <tbody>
+            <td ng-repeat="tienda in vm.tiendas track by tienda.id">
+                <div style="font-size: 200%; text-align:center; color: #ba452a; font-family: blanch; font-size: 51px;">
+                    <div class="col-sm-12">{{tienda.nombre}}</div></br>
+                    <div class="panel-body col-lg-7" >
+                       <ng-map center="[{{tienda.latitud}},{{tienda.longitud}}]" style="height: 300px; width:500px;"><marker position="[{{tienda.latitud}},{{tienda.longitud}}]"></marker></ng-map>
+                    </div>
+                    <div class="col-sm-12 comentarioDetail1" ui-sref="comentario-detail({id:comentario.id})">{{tienda.direccion}}</div>
+                    <div class="col-sm-12 comentarioDetail1" ui-sref="comentario-detail({id:comentario.id})">{{tienda.ciudad}}</div>
+                    <div class="col-sm-12 comentarioDetail2" ui-sref="comentario-detail({id:comentario.id})">Horario: {{tienda.horario}}</div>
+                    <div class="col-sm-12 comentarioDetail3" ui-sref="comentario-detail({id:comentario.id})">Telf: {{tienda.telefono}}</div>
+                </div>
+            </td>
+            </tbody>
+        </table>
+    </div>
+    <!--
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <!--<thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombre"><span translate="ecofruitApp.tienda.nombre">Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="direccion"><span translate="ecofruitApp.tienda.direccion">Direccion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ciudad"><span translate="ecofruitApp.tienda.ciudad">Ciudad</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="latitud"><span translate="ecofruitApp.tienda.latitud">Latitud</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="longitud"><span translate="ecofruitApp.tienda.longitud">Longitud</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="horario"><span translate="ecofruitApp.tienda.horario">Horario</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="telefono"><span translate="ecofruitApp.tienda.telefono">Telefono</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="user.id"><span translate="ecofruitApp.tienda.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="tienda in vm.tiendas track by tienda.id">
+                   <!-- <td><a ui-sref="tienda-detail({id:tienda.id})">{{tienda.id}}</a></td>
+                    <td>{{tienda.nombre}}</td>
+                    <td>{{tienda.direccion}}</td>
+                    <td>{{tienda.ciudad}}</td>
+                    <!--<td>{{tienda.latitud}}</td>
+                    <td>{{tienda.longitud}}</td>
+                    <td>{{tienda.horario}}</td>
+                    <td>{{tienda.telefono}}</td>
+                   <!-- <td>
+                        {{tienda.user.firstName}}
+                    </td>
+                    <td class="panel-body col-lg-7" >
+                        <ng-map center="[{{tienda.latitud}},{{tienda.longitud}}]" style="height: 300px; width:500px;"><marker position="[{{tienda.latitud}},{{tienda.longitud}}]"></marker></ng-map>
+                    </td>
+                   <!-- <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="tienda-detail({id:tienda.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tienda.edit({id:tienda.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tienda.delete({id:tienda.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>-->
+</div>

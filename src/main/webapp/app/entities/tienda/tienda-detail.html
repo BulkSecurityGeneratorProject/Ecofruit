@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="ecofruitApp.tienda.detail.title">Tienda</span> {{vm.tienda.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="ecofruitApp.tienda.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.tienda.nombre}}</span>
+        </dd>
+        <dt><span translate="ecofruitApp.tienda.direccion">Direccion</span></dt>
+        <dd>
+            <span>{{vm.tienda.direccion}}</span>
+        </dd>
+        <dt><span translate="ecofruitApp.tienda.ciudad">Ciudad</span></dt>
+        <dd>
+            <span>{{vm.tienda.ciudad}}</span>
+        </dd>
+        <dt><span translate="ecofruitApp.tienda.latitud">Latitud</span></dt>
+        <dd>
+            <span>{{vm.tienda.latitud}}</span>
+        </dd>
+        <dt><span translate="ecofruitApp.tienda.longitud">Longitud</span></dt>
+        <dd>
+            <span>{{vm.tienda.longitud}}</span>
+        </dd>
+        <dt><span translate="ecofruitApp.tienda.horario">Horario</span></dt>
+        <dd>
+            <span>{{vm.tienda.horario}}</span>
+        </dd>
+        <dt><span translate="ecofruitApp.tienda.telefono">Telefono</span></dt>
+        <dd>
+            <span>{{vm.tienda.telefono}}</span>
+        </dd>
+        <dt><span translate="ecofruitApp.tienda.user">User</span></dt>
+        <dd>
+            {{vm.tienda.user.id}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -121,7 +121,7 @@ public class RecetaResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/Misrecetas",
+    @RequestMapping(value = "/Misrecetas2",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
@@ -133,17 +133,17 @@ public class RecetaResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
-   /* @RequestMapping(value = "/recetasComentarios",
+    /*@RequestMapping(value = "/recetasComentarios/{id}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<Receta>> getRecetasComentarios(Pageable pageable)
+    public ResponseEntity<List<Receta>> getRecetasComentarios(@PathVariable long id, Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Recetas");
-        Page<Receta> page = recetaRepository.findComentarioByReceta(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/recetas");
+        Page<Receta> page = recetaRepository.findComentarioByReceta(id, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/recetas/rectasComentarios");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
-    }*/
+    }
     /**
      * GET  /recetas/:id : get the "id" receta.
      *

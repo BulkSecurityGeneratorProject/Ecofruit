@@ -91,5 +91,6 @@
             vm.transition();
         }
         $scope.Misrecetas = Receta.getMisrecetas();
+      //  $scope.recetasComentarios = Receta.getRecetasComentarios();
     }
 })();

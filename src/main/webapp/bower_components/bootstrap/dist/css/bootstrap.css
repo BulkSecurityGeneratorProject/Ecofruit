@@ -20,6 +20,10 @@ body {
 #creadoPor{
 
 }
+
+.bgYellow{ background-color: #E9DBAC !important}
+.bgTransparent{background-color: transparent !important}
+
 #ecofruitlogo{
     display: inline-block;
     height: 300px;
@@ -151,6 +155,9 @@ body {
 .jumbotronEntidades{
     background-image: url("biblioV.jpg");
 }
+.jumbotronTienda{
+    background-image: url("mapaTiendas.jpg");
+}
 .mensajes{
     background-color: white;
     border-bottom: 1px solid #352e24;
@@ -230,6 +237,7 @@ a:active,
 a:hover {
   outline: 0;
     opacity: 0.8;
+   /* transform: scale(1.1, 1.1);*/
 }
 abbr[title] {
   border-bottom: 1px dotted;
@@ -1775,7 +1783,7 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-    background-image: url("fondoColor.jpg");
+    background-color: #E9DBAC;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -2749,7 +2757,7 @@ output {
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
-  background-color: #fff;
+  background-color: #f8f8ff;
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -5215,6 +5223,49 @@ a.badge:focus {
   }
 }
 
+.jumbotronTienda {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eee;
+}
+.jumbotronTienda h1,
+.jumbotronTienda .h1 {
+    color: inherit;
+}
+.jumbotronTienda p {
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+}
+.jumbotronTienda > hr {
+    border-top-color: #d5d5d5;
+}
+.container .jumbotronTienda,
+.container-fluid .jumbotronTienda {
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 6px;
+}
+.jumbotronTienda .container {
+    max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+    .jumbotronTienda {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+    .container .jumbotronTienda,
+    .container-fluid .jumbotronTienda {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+    .jumbotronTienda h1,
+    .jumbotronTienda .h1 {
+        font-size: 63px;
+    }
+}
 
 .jumbotronEntidades {
     padding-top: 30px;
@@ -6347,6 +6398,7 @@ button.close {
   padding: 15px;
   text-align: right;
   border-top: 1px solid #e5e5e5;
+    background-color: #f8f8ff;
 }
 .modal-footer .btn + .btn {
   margin-bottom: 0;

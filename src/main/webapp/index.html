@@ -24,7 +24,7 @@
     <![endif]-->
 
     <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
+    <div class="container" ng-class="path.get() === '/' ? 'bgTransparent' : 'bgYellow'">
         <div class="well" ui-view="content">
             <!-- Angular views -->
         </div>
@@ -92,6 +92,13 @@
     <script src="app/layouts/error/error.state.js"></script>
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
+    <script src="app/entities/tienda/tienda-dialog.controller.js"></script>
+    <script src="app/entities/tienda/tienda-detail.controller.js"></script>
+    <script src="app/entities/tienda/tienda-delete-dialog.controller.js"></script>
+    <script src="app/entities/tienda/tienda.state.js"></script>
+    <script src="app/entities/tienda/tienda.service.js"></script>
+    <script src="app/entities/tienda/tienda.search.service.js"></script>
+    <script src="app/entities/tienda/tienda.controller.js"></script>
     <script src="app/entities/subcategoria/subcategoria-dialog.controller.js"></script>
     <script src="app/entities/subcategoria/subcategoria-detail.controller.js"></script>
     <script src="app/entities/subcategoria/subcategoria-delete-dialog.controller.js"></script>
@@ -221,6 +228,11 @@
     <script src="app/account/activate/activate.state.js"></script>
     <script src="app/account/activate/activate.controller.js"></script>
     <script src="app/account/account.state.js"></script>
+    <script src="bower_components/angular-google-maps-geocoder/src/angular-google-maps-geocoder.js"></script>
+    <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+    <script src="bower_components/ngmap/testapp/scripts/markerclusterer.js"></script>
+    <script src="https://maps.google.com/maps/api/js?libraries=places,visualization,drawing,geometry"></script>
+
     <!-- endinject -->
     <!-- endbuild -->
 

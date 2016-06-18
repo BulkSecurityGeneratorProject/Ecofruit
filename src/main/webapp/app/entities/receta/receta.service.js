@@ -24,8 +24,13 @@
             'getMisrecetas':{
                 method :'GET',
                 isArray:true,
-                url:'api/Misrecetas'
+                url:'api/Misrecetas2'
             },
+           /* 'getRecetasComentarios':{
+                method :'GET',
+                isArray:true,
+                url:'api/recetasComentarios/{id}'
+            },*/
             'update': { method:'PUT' }
         });
     }

@@ -46,9 +46,11 @@
         <table class="col-xs-4 jh-table table table-striped">
             <tbody>
             <td ng-repeat="receta in vm.recetas track by receta.id">
-                <div style="font-size: 200%; text-align:center; color: #ba452a; font-family: blanch; font-size: 51px;">
+                <div class="col-xs-12" style="font-size: 200%; text-align:center; color: #ba452a; font-family: blanch; font-size: 51px;">
                     {{receta.nombre}}</br>
-                    <a class="col-sm-4" ng-if="receta.imagen" ui-sref="receta-detail({id:receta.id})">
+                </div>
+                <div class="col-xs-12">
+                    <a class="col-sm-12" ng-if="receta.imagen" ui-sref="receta-detail({id:receta.id})">
                         <img data-ng-src="{{'data:' + receta.imagenContentType + ';base64,' + receta.imagen}}" style="height: 300px ;"width="400px;"/>
                     </a>
                 </div>

@@ -33,12 +33,17 @@
                         <span class="hidden-sm">Mensajes</span>
                     </a>
                 </li>
+                <li ui-sref-active="active" >
+                    <a ui-sref="tienda" ng-click="vm.collapseNavbar()">
+                        <span>Tiendas</span>
+                    </a>
+                </li>
                 <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
                 <li  ng-switch-when="true" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
                         <span>
-                            <span class="hidden-sm" translate="global.menu.entities.main">
-                                Entities
+                            <span class="hidden-sm" >
+                                Marcas
                             </span>
                             <b class="caret"></b>
                         </span>
@@ -48,17 +53,17 @@
 
                         <li ui-sref-active="active" >
                             <a ui-sref="marca" ng-click="vm.collapseNavbar()">
-                                <span translate="global.menu.entities.marca">Marca</span>
+                                <span >Marcas</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="subcategoria" ng-click="vm.collapseNavbar()">
-                                <span translate="global.menu.entities.subcategoria">Subcategoria</span>
+                                <span >Subcategorias</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="categoria" ng-click="vm.collapseNavbar()">
-                                <span translate="global.menu.entities.categoria">Categoria</span>
+                                <span >Categorias</span>
                             </a>
                         </li>
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
@@ -174,6 +179,12 @@
                             <a ui-sref="comentario.admin" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
                                 <span>Comentarios</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="tienda.admin" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+                                <span>Tiendas</span>
                             </a>
                         </li>
                         <li ng-hide="vm.inProduction || vm.swaggerDisabled" ui-sref-active="active">

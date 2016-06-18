@@ -1,0 +1,29 @@
+{
+    "ecofruitApp": {
+        "tienda" : {
+            "home": {
+                "title": "Tiendas",
+                "createLabel": "Crear nuevo Tienda",
+                "createOrEditLabel": "Crear o editar Tienda",
+                "search": "Search for Tienda"
+            },
+            "created": "Un nuevo Tienda ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tienda ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tienda ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tienda {{ id }}?"
+            },
+            "detail": {
+                "title": "Tienda"
+            },
+            "nombre": "Nombre",
+            "direccion": "Direccion",
+            "ciudad": "Ciudad",
+            "latitud": "Latitud",
+            "longitud": "Longitud",
+            "horario": "Horario",
+            "telefono": "Telefono",
+            "user": "User"
+        }
+    }
+}

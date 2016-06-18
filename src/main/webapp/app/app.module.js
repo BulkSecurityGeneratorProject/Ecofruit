@@ -3,9 +3,9 @@
 
     angular
         .module('ecofruitApp', [
-            'ngStorage', 
+            'ngStorage',
             'tmh.dynamicLocale',
-            'pascalprecht.translate', 
+            'pascalprecht.translate',
             'ngResource',
             'ngCookies',
             'ngAria',
@@ -16,14 +16,21 @@
             'ui.router',
             'infinite-scroll',
             // jhipster-needle-angularjs-add-module JHipster will add new module here
+            'ngMap',
             'angular-loading-bar'
         ])
         .run(run);
 
-    run.$inject = ['stateHandler', 'translationHandler'];
+    run.$inject = ['stateHandler', 'translationHandler', '$location','$rootScope'];
 
-    function run(stateHandler, translationHandler) {
+    function run(stateHandler, translationHandler, $location, $rootScope ) {
         stateHandler.initialize();
         translationHandler.initialize();
+        $rootScope.path = {
+            get: function(){
+                return $location.path();
+            }
+        }
+
     }
 })();
